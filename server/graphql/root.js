@@ -12,9 +12,7 @@ module.exports = new GraphQLObjectType({
 				StockSymbol: {type: GraphQLString}
 			},
 			resolve(parentVal, args){
-				if((args.Type === "TIME_SERIES_DAILY") || (args.Type === "TIME_SERIES_DAILY_ADJUSTED")){
-					return StockSearchResolve(parentVal, args);
-				}
+				return StockSearchResolve(parentVal, args);
 			}
 		}
 	}

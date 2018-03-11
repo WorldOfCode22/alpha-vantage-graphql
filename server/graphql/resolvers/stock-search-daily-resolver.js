@@ -9,16 +9,34 @@ module.exports = function(parentVal, args){
 		)
 		.then(
 			(obj)=>{
+				let dataStr = "";
+				if((args.Type === "TIME_SERIES_DAILY")||(args.Type === "TIME_SERIES_DAILY_ADJUSTED")){
+					dataStr = "Time Series (Daily)";
+				}else if(args.Type === "TIME_SERIES_WEEKLY"){
+					dataStr = "Weekly Time Series";
+				}else if(args.Type === "TIME_SERIES_WEEKLY_ADJUSTED"){
+					dataStr = "Weekly Adjusted Time Series";
+				}else if(args.Type === "TIME_SERIES_MONTHLY"){
+					dataStr = "Monthly Time Series";
+				}else if(args.Type === "TIME_SERIES_MONTHLY_ADJUSTED"){
+					dataStr = "Monthly Adjusted Time Series";
+				}else{
+					throw new Error("Non vaild search type");
+				}
 				obj.MetaData = {};
 				obj.MetaData.Information = obj["Meta Data"]["1. Information"];
 				obj.MetaData.LastRefreshed = obj["Meta Data"]["3. Last Refreshed"];
-				obj.MetaData.OutputSize = obj["Meta Data"]["4. Output Size"];
-				obj.MetaData.TimeZone = obj["Meta Data"]["5. Time Zone"];
+				if(obj["Meta Data"]["4. Output Size"]){
+					obj.MetaData.OutputSize = obj["Meta Data"]["4. Output Size"];
+					obj.MetaData.TimeZone = obj["Meta Data"]["5. Time Zone"];
+				}else if(!obj["Meta Data"]["4. Output Size"]){
+					obj.MetaData.TimeZone = obj["Meta Data"]["4. Time Zone"];
+				}
 				obj.TimeSeries = {};
 				obj.TimeSeries.Dates = [];
-				let keys = Object.keys(obj["Time Series (Daily)"]);
+				let keys = Object.keys(obj[dataStr]);
 				keys.forEach(
-					(item)=>{obj.TimeSeries.Dates.push({DataDate:item, DataValue:obj["Time Series (Daily)"][item]});}
+					(item)=>{obj.TimeSeries.Dates.push({DataDate:item, DataValue:obj[dataStr][item]});}
 				);
 				obj.TimeSeries.Dates.forEach(
 					(data)=>{
@@ -34,9 +52,7 @@ module.exports = function(parentVal, args){
 							data.DataValue.DividendAmount = data.DataValue["7. dividend amount"];
 							data.DataValue.SplitCoefficient = data.DataValue["8. split coefficient"];
 						}
-					}
-				);
-				console.log(obj.MetaData);
+					});
 				return obj;
 			},
 			/* eslint-disable-next-line semi */
