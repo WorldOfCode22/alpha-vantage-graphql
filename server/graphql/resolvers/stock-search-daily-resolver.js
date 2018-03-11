@@ -1,7 +1,7 @@
 const fetch = require("node-fetch");
 
 module.exports = function(parentVal, args){
-	return fetch("https://www.alphavantage.co/query?function="+ args.Type+ "&symbol="+args.StockSymbol+"&interval=1min&apikey=" + process.env.API_KEY)
+	return fetch("https://www.alphavantage.co/query?function="+ args.Type+ "&symbol="+args.StockSymbol+"&interval="+args.Interval+"&apikey=" + process.env.API_KEY)
 		.then(
 			(res)=>{return res.json();},
 			/* eslint-disable-next-line semi */
@@ -20,7 +20,10 @@ module.exports = function(parentVal, args){
 					dataStr = "Monthly Time Series";
 				}else if(args.Type === "TIME_SERIES_MONTHLY_ADJUSTED"){
 					dataStr = "Monthly Adjusted Time Series";
-				}else{
+				}else if(args.Type === "TIME_SERIES_INTRADAY"){
+					dataStr = "Time Series (" +args.Interval+ ")";
+				}
+				else{
 					throw new Error("Non vaild search type");
 				}
 				obj.MetaData = {};
@@ -29,7 +32,11 @@ module.exports = function(parentVal, args){
 				if(obj["Meta Data"]["4. Output Size"]){
 					obj.MetaData.OutputSize = obj["Meta Data"]["4. Output Size"];
 					obj.MetaData.TimeZone = obj["Meta Data"]["5. Time Zone"];
-				}else if(!obj["Meta Data"]["4. Output Size"]){
+				}else if(obj["Meta Data"]["4. Interval"]){
+					obj.MetaData.Interval = obj["Meta Data"]["4. Interval"];
+					obj.MetaData.OutputSize = obj["Meta Data"]["5. Output Size"];
+					obj.MetaData.TimeZone = obj["Meta Data"]["6. Time Zone"];
+				}else{
 					obj.MetaData.TimeZone = obj["Meta Data"]["4. Time Zone"];
 				}
 				obj.TimeSeries = {};

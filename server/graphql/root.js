@@ -9,7 +9,8 @@ module.exports = new GraphQLObjectType({
 			type: StockSearchType,
 			args: {
 				Type: {type: new GraphQLNonNull(GraphQLString)},
-				StockSymbol: {type: GraphQLString}
+				StockSymbol: {type: GraphQLString},
+				Interval: {type: GraphQLString}
 			},
 			resolve(parentVal, args){
 				return StockSearchResolve(parentVal, args);
