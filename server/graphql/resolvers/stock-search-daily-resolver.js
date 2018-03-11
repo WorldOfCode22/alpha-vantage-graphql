@@ -31,6 +31,8 @@ module.exports = function(parentVal, args){
 						}else{
 							data.DataValue.AdjustedClose = data.DataValue["5. adjusted close"];
 							data.DataValue.Volume = data.DataValue["6. volume"];
+							data.DataValue.DividendAmount = data.DataValue["7. dividend amount"];
+							data.DataValue.SplitCoefficient = data.DataValue["8. split coefficient"];
 						}
 					}
 				);
