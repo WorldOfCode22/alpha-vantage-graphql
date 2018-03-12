@@ -27,7 +27,7 @@ Then run server:
 ```
 npm run server
 ```
-Lastly navigate to localhost:yourPORT and the graphiql interface should display
+Lastly navigate to localhost:yourPORT/graphql and the graphiql interface should display
 # Contributing
 Please read [CONTRIBUTING.md](https://github.com/WorldOfCode22/alpha-vantage-graphql/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 # Verisioning
