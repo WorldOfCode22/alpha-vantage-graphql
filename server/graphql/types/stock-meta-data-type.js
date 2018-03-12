@@ -6,6 +6,7 @@ module.exports = new GraphQLObjectType({
 		Information: {type: GraphQLString},
 		LastRefreshed: {type: GraphQLString},
 		OutputSize: {type: GraphQLString},
-		TimeZone: {type: GraphQLString}
+		TimeZone: {type: GraphQLString},
+		Notes: {type: GraphQLString}
 	}
 });

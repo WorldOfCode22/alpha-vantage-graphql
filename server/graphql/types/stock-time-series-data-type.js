@@ -10,6 +10,9 @@ module.exports = new GraphQLObjectType({
 		AdjustedClose: {type: GraphQLString},
 		DividendAmount: {type: GraphQLString},
 		SplitCoefficient: {type: GraphQLString},
-		Volume: {type: GraphQLString}
+		Volume: {type: GraphQLString},
+		Price: {type: GraphQLString},
+		Symbol: {type: GraphQLString},
+		TimeStamp: {type: GraphQLString}
 	}
 });
