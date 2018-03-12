@@ -54,15 +54,15 @@ Provides stock data. Fields that are supported include:
 This is the query to gather foreign exchange data 
 ### args
 (Use 3 letter codes United States Dollar = USD)
-To: The currency that currency is being converted to.
-From: The country that currency is being converted from.
+* To: The currency that currency is being converted to.
+* From: The country that currency is being converted from.
 ### fields 
-FromCurrencyCode: The 3 letter code that the currency is being converted from.
-FromCurrencyName: The name of the currency being converted from.
-ToCurrencyCode:   The 3 letter code that the currency is being converted to.
-ToCurrencyName:   The name of the currency being converted to.
-ExchangeRate: The rate of exchange between the two currencies.
-LastRefreshed: The last time this data was refreshed by Alpha Vantage.
-TimeZone: The time zone that time data is based on.
+* FromCurrencyCode: The 3 letter code that the currency is being converted from.
+* FromCurrencyName: The name of the currency being converted from.
+* ToCurrencyCode:   The 3 letter code that the currency is being converted to.
+* ToCurrencyName:   The name of the currency being converted to.
+* ExchangeRate: The rate of exchange between the two currencies.
+* LastRefreshed: The last time this data was refreshed by Alpha Vantage.
+* TimeZone: The time zone that time data is based on.
 
 # Query Examples Coming Soon
