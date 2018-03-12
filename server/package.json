@@ -1,6 +1,6 @@
 {
   "name": "alphavantage-server",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "The server logic for Alpha Vantage GraphQL overlay",
   "main": "app.js",
   "scripts": {

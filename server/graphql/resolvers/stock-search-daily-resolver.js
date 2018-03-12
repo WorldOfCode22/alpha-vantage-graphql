@@ -43,21 +43,21 @@ module.exports = function(parentVal, args){
 				obj.TimeSeries.Dates = [];
 				let keys = Object.keys(obj[dataStr]);
 				keys.forEach(
-					(item)=>{obj.TimeSeries.Dates.push({DataDate:item, DataValue:obj[dataStr][item]});}
+					(item)=>{obj.TimeSeries.Dates.push({Date:item, Value:obj[dataStr][item]});}
 				);
 				obj.TimeSeries.Dates.forEach(
 					(data)=>{
-						data.DataValue.Open = data.DataValue["1. open"];
-						data.DataValue.High = data.DataValue["2. high"];
-						data.DataValue.Low = data.DataValue["3. low"];
-						data.DataValue.Close = data.DataValue["4. close"];
-						if(data.DataValue["5. Volume"]){
-							data.DataValue.Volume = data.DataValue["5. volume"];
+						data.Value.Open = data.Value["1. open"];
+						data.Value.High = data.Value["2. high"];
+						data.Value.Low = data.Value["3. low"];
+						data.Value.Close = data.Value["4. close"];
+						if(data.Value["5. Volume"]){
+							data.Value.Volume = data.Value["5. volume"];
 						}else{
-							data.DataValue.AdjustedClose = data.DataValue["5. adjusted close"];
-							data.DataValue.Volume = data.DataValue["6. volume"];
-							data.DataValue.DividendAmount = data.DataValue["7. dividend amount"];
-							data.DataValue.SplitCoefficient = data.DataValue["8. split coefficient"];
+							data.Value.AdjustedClose = data.Value["5. adjusted close"];
+							data.Value.Volume = data.Value["6. volume"];
+							data.Value.DividendAmount = data.Value["7. dividend amount"];
+							data.Value.SplitCoefficient = data.Value["8. split coefficient"];
 						}
 					});
 				return obj;
