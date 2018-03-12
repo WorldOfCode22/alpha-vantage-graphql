@@ -35,4 +35,4 @@ We use SemVer for versioning.
 # Authors
 Sloan Gwaltney (worldofcode22@gmail.com)
 # License
-This project is licensed under the MIT License - see the LICENSE.md file for details
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/WorldOfCode22/alpha-vantage-graphql/blob/master/LICENSE.md) file for details
