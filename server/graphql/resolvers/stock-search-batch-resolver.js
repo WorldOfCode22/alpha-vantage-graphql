@@ -33,5 +33,5 @@ module.exports = function(parentVal, args){
 		)
 		.catch(
 			(err)=>{throw new Error(err);}
-		)
+		);
 };
