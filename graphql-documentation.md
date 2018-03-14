@@ -64,5 +64,3 @@ This is the query to gather foreign exchange data
 * ExchangeRate: The rate of exchange between the two currencies.
 * LastRefreshed: The last time this data was refreshed by Alpha Vantage.
 * TimeZone: The time zone that time data is based on.
-
-# Query Examples Coming Soon
